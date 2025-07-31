@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD SYSTEM</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="w-75 bg-danger mx-auto p-2 my-2">
+      <h1 class="text-center text-white">CRUD SYSTEM</h1>
+
+      <div class="form-floating mb-3">
+        <input
+          oninput="validationInputs(this , 'msgName')"
+          type="text"
+          class="form-control"
+          id="productName"
+          placeholder="Product Name"
+        />
+        <label for="productName">Product Name</label>
+        <p id="msgName" class="alert alert-danger d-none">Invalid input</p>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input
+          oninput="validationInputs(this , 'msgPrice')"
+          type="number"
+          class="form-control"
+          id="productPrice"
+          placeholder="Product Price"
+        />
+        <label for="productPrice">Product Price</label>
+        <p id="msgPrice" class="alert alert-danger d-none">Invalid input</p>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input
+          oninput="validationInputs(this , 'msgCategory')"
+          list="categories"
+          type="text"
+          class="form-control"
+          id="productCategory"
+          placeholder="Product Category"
+        />
+        <label for="productCategory">Product Category</label>
+        <p id="msgCategory" class="alert alert-danger d-none">Invalid input</p>
+        <datalist id="categories">
+          <option value="TV" />
+          <option value="Mobile" />
+          <option value="Screens" />
+        </datalist>
+      </div>
+
+      <div class="form-floating mb-3">
+        <textarea
+          oninput="validationInputs(this , 'msgdescription')"
+          style="height: 100px"
+          class="form-control"
+          id="productDescription"
+          placeholder="Product Description"
+        ></textarea>
+        <label for="productDescription">Product Description</label>
+        <p id="msgdescription" class="alert alert-danger d-none">Invalid input</p>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input
+          type="file"
+          class="form-control"
+          id="productImage"
+        />
+        <label for="productImage">Product Image</label>
+      </div>
+
+      <button class="btn btn-primary" id="btnAdd" onclick="AddProduct()">
+        Add Product
+      </button>
+      <button class="btn btn-primary d-none" id="btnUpdate" onclick="updateData()">
+        Update Product
+      </button>
+    </div>
+
+   
+
+    <div>
+      <table class="table my-2 text-center">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tableData"></tbody>
+      </table>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
